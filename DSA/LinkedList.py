@@ -1,4 +1,26 @@
+# The time complexity of an operation on a linked list depends on its position 
+# Add or delete at the beginning O(1)
+# Add at the end is O(1)
+# Delete at the end is O(n)
+# Add or delete at any position other than the head or tail is O(n)
+# Searching has a time complexity of O(n)
 
+class Node:
+    def __init__(self, value, next = None):
+        self.value = value
+        self.next = next
+        
+    def get_value(self):
+        return self.value
+    def set_value(self, value):
+        self.value = value
+        
+    def get_next(self):
+        return self.next
+    def set_next(self, next):
+        self.next = next
+        
+        
 class LinkedList():
     def __init__(self, initial_node):
         self.head = initial_node
@@ -233,21 +255,7 @@ class LinkedList():
                 print(node.get_value())
         else:
             print("the linked list is empty")
-            
-class Node:
-    def __init__(self, value, next = None):
-        self.value = value
-        self.next = next
-        
-    def get_value(self):
-        return self.value
-    def set_value(self, value):
-        self.value = value
-        
-    def get_next(self):
-        return self.next
-    def set_next(self, next):
-        self.next = next
+ 
 
 head = Node(1)
 node2 = Node(2)
