@@ -1,4 +1,7 @@
-#First in first out
+# First in first out
+
+# Examples
+# - Restaurant orders
 
 class Node:
     def __init__(self, value):
@@ -35,20 +38,21 @@ class Queue:
         
     def dequeue(self):
         if self.lenght > 0:
-            temp = self.first
-            self.first = self.first.next
-            temp.next = None
+            if self.lenght == 1:
+                self.first = None
+                self.last = None
+            else:       
+                temp = self.first
+                self.first = self.first.next
+                temp.next = None
             self.lenght -= 1
         else:
             print("Your queue is empty")
     
 my_queue = Queue()
 my_queue.enqueue(1)
-my_queue.enqueue(2)
-my_queue.enqueue(3)
-my_queue.enqueue(4)
-my_queue.enqueue(5)
 my_queue.dequeue()
+my_queue.enqueue(6)
 
 
 my_queue.print_queue()
