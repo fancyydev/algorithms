@@ -15,7 +15,9 @@
 
 # For any integer N divided by an integer M, the remainder is always in the range 0 ≤ remainder < M.
 
-#This can be useful to find repited numbers in two different lists
+# This can be useful to find repited numbers in two different lists
+
+# In the course in hash table big o has an error when he say "Looking up a value in a hash table is O(1)"
 
 class HashTable:
     def __init__(self, size = 7):
