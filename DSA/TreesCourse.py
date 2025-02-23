@@ -26,18 +26,74 @@ class Node:
         self.right = None
         
 class BinarySearchTree:
-    def __init__(self, value):
-        new_node = Node(value)
-        self.root = new_node
-        self.level = 1
+    def __init__(self, value = None):
+        
+        if value is not None:
+            new_node = Node(value)
+            self.root = new_node
+            self.level = 1
+        else:
+            self.root = None
+            self.level = 0
         # Tal vez podriamos usar niveles
         # Tal vez podriamos usar cantidad de nodos
+        
     def print_tree(self):
-        print()
-    def append(self):
-        print()
+        def _in_order_traversal(node):
+            if node is not None:
+                _in_order_traversal(node.left)  # Recorre el subárbol izquierdo
+                print(node.value, end=" ")  # Imprime el nodo actual
+                _in_order_traversal(node.right)  # Recorre el subárbol derecho
+        
+        _in_order_traversal(self.root)
+        print() 
+        
+    def insert(self, value):
+        new_node = Node(value)
+        temp = self.root
+        
+        while True:
+            if self.root is None:
+                self.root = new_node
+                break
+            
+            if temp.value == new_node.value:
+                return False
+            
+            if new_node.value > temp.value:
+                if temp.right is None:
+                    temp.right = new_node
+                    break
+                temp = temp.right
+            else:
+                if temp.left is None:
+                    temp.left = new_node
+                    break
+                temp = temp.left
+    
+    def contains(self, value):
+        temp = self.root
+        while temp is not None:
+            if value > temp.value:
+                temp = temp.right
+            elif value < temp.value:
+                temp = temp.left
+            else:
+                return True
+                
+        return False        
+
+        
     def delete(self):
         print()
-        
-for i in range(4):
-    print(i)
+
+bst = BinarySearchTree(10)
+bst.insert(5)
+bst.insert(15)
+bst.insert(3)
+bst.insert(7)
+bst.insert(12)
+bst.insert(18)
+
+print(bst.contains(3))
+bst.print_tree()
